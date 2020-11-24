@@ -6,9 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 class Question extends Model
 {
+	
+	protected $guarded = [];
+	
+	public function getRoutekeyName()
+	{
+		return 'slug';
+	}
 	public function user()
 	{
-		return	$this->belongesTo(User::class);
+		
+		return $this->belongsTo(User::class);
 	}
 
 	public function replies()
@@ -20,4 +28,12 @@ class Question extends Model
 	{
 		return $this->belongesTo(Category::class);
 	}
+
+
+	public function getPathAttribute()
+	{
+		return asset("api/question/$this->slug");
+	}
+
+
 }

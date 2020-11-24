@@ -23,12 +23,6 @@ class DatabaseSeeder extends Seeder
       	return $reply->like()->save(factory(Like::class)->make());
       });
 
-      /* factory(Reply::class, 50)->create()->each(function ($reply) {
-            return $reply->like()->save(factory(Like::class)->make());
-        });
-
-      factory(Reply::class,50)->create();*/
-
 
     }
 }
